@@ -1,0 +1,4 @@
+# FoodsApp
+Application based by API [www.themealdb.com](www.themealdb.com) using Retrofit2 and Picasso.
+
+<img src="https://user-images.githubusercontent.com/10943612/71526855-d092e400-28e9-11ea-8e15-d84bf9f60faf.png" width="30%"></img> <img src="https://user-images.githubusercontent.com/10943612/71526856-d092e400-28e9-11ea-8f8f-d1b083aab32f.png" width="30%"></img> <img src="https://user-images.githubusercontent.com/10943612/71526857-d12b7a80-28e9-11ea-9928-a1b1ceb6bf85.png" width="30%"></img> <img src="https://user-images.githubusercontent.com/10943612/71526852-cffa4d80-28e9-11ea-986a-310415730f78.png" width="30%"></img> <img src="https://user-images.githubusercontent.com/10943612/71526853-cffa4d80-28e9-11ea-814d-a15ea4d0e893.png" width="30%"></img> <img src="https://user-images.githubusercontent.com/10943612/71526854-cffa4d80-28e9-11ea-9222-100346011a40.png" width="30%"></img> 
