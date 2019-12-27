@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">FoodsAppKot</string>
+    <string name="categories">Categories</string>
+    <string name="instructions">Instructions</string>
+    <string name="dots">…</string>
+    <string name="ingredients">Ingredients</string>
+    <string name="youtube">youtube</string>
+    <string name="source">source</string>
+    <string name="country">Country</string>
+    <string name="category">Category</string>
+    <string name="meal_categories">Meal categories</string>
+    <string name="search">Search</string>
+</resources>
