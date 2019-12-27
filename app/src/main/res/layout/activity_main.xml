@@ -22,17 +22,17 @@
                 android:layout_height="120dp"
                 android:background="@color/colorPrimary" />
 
-<!--            <TextView-->
-<!--                android:id="@+id/title"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginStart="16dp"-->
-<!--                android:layout_marginTop="20dp"-->
-<!--                android:layout_marginEnd="16dp"-->
-<!--                android:textColor="@color/colorWhite"-->
-<!--                android:textSize="32sp"-->
-<!--                android:textStyle="bold"-->
-<!--                android:text="Foods App" />-->
+<!--                        <TextView-->
+<!--                            android:id="@+id/title"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_marginStart="16dp"-->
+<!--                            android:layout_marginTop="20dp"-->
+<!--                            android:layout_marginEnd="16dp"-->
+<!--                            android:textColor="@color/colorWhite"-->
+<!--                            android:textSize="32sp"-->
+<!--                            android:textStyle="bold"-->
+<!--                            android:text="Foods App" />-->
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardSearch"
@@ -49,55 +49,57 @@
                     android:id="@+id/search"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:padding="10dp"
-                    android:hint="@string/search"
-                    android:textColor="@color/colorPrimaryLight"
+                    android:drawableStart="@drawable/ic_search_primary_light"
                     android:gravity="center_vertical"
-                    android:drawableStart="@drawable/ic_search_primary_light"/>
+                    android:hint="@string/search"
+                    android:padding="10dp"
+                    android:textColor="@color/colorPrimaryLight" />
 
             </androidx.cardview.widget.CardView>
 
-            <androidx.viewpager.widget.ViewPager
-                android:id="@+id/viewPagerHeader"
-                android:layout_width="match_parent"
-                android:layout_height="130dp"
-                android:layout_below="@id/cardSearch"
-                android:layout_marginTop="8dp"
-                android:clipToPadding="false"
-                android:foregroundGravity="center"
-                android:overScrollMode="never"/>
+                <androidx.viewpager.widget.ViewPager
+                    android:id="@+id/viewPagerHeader"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:layout_marginTop="8dp"
+                    android:clipToPadding="false"
+                    android:foregroundGravity="center"
+                    android:layout_below="@id/cardSearch"
+                    android:overScrollMode="never"/>
 
-            <include
-                android:id="@+id/shimmerMeal"
-                layout="@layout/item_view_pager_header_shimmer" />
+                <include
+                    android:id="@+id/shimmerMeal"
+                    layout="@layout/item_view_pager_header_shimmer" />
 
-<!--            <TextView-->
-<!--                android:id="@+id/titleCategory"-->
-<!--                android:text="@string/categories"-->
-<!--                android:textSize="18sp"-->
-<!--                android:textColor="@color/colorPrimary"-->
-<!--                android:textStyle="bold"-->
-<!--                android:layout_marginLeft="16dp"-->
-<!--                android:layout_marginRight="16dp"-->
-<!--                android:layout_marginTop="8dp"-->
-<!--                android:gravity="center"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_below="@id/viewPagerHeader"/>-->
+
+            <!--            <TextView-->
+            <!--                android:id="@+id/titleCategory"-->
+            <!--                android:text="@string/categories"-->
+            <!--                android:textSize="18sp"-->
+            <!--                android:textColor="@color/colorPrimary"-->
+            <!--                android:textStyle="bold"-->
+            <!--                android:layout_marginLeft="16dp"-->
+            <!--                android:layout_marginRight="16dp"-->
+            <!--                android:layout_marginTop="8dp"-->
+            <!--                android:gravity="center"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_below="@id/viewPagerHeader"/>-->
 
             <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerCategory"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/recyclerCategory"
-                android:scrollbars="none"
-                android:layout_marginTop="8dp"
-                android:clipToPadding="false"
                 android:layout_below="@id/viewPagerHeader"
                 android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginRight="8dp"
-                android:layout_marginBottom="48dp" />
+                android:layout_marginBottom="48dp"
+                android:clipToPadding="false"
+                android:scrollbars="none" />
 
-            <include android:id="@+id/shimmerCategory"
+            <include
+                android:id="@+id/shimmerCategory"
                 layout="@layout/item_recycler_category_shimmer" />
 
 

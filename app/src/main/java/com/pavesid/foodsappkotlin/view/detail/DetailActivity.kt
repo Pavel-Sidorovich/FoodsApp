@@ -8,19 +8,11 @@ import com.pavesid.foodsappkotlin.model.Meals
 import com.pavesid.foodsappkotlin.view.main.MainActivity
 import kotlinx.android.synthetic.main.activity_detail.*
 import android.content.Intent
-import android.graphics.BlendMode
-import android.graphics.BlendModeColorFilter
-import android.graphics.ColorFilter
 import com.squareup.picasso.Picasso
-import android.graphics.PorterDuff
-import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.os.Build
-import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import androidx.core.view.ViewCompat
-import com.google.android.material.appbar.AppBarLayout
 
 
 class DetailActivity : AppCompatActivity(), DetailView {
@@ -30,7 +22,6 @@ class DetailActivity : AppCompatActivity(), DetailView {
         setContentView(R.layout.activity_detail)
 
         val mealName: String? = intent.getStringExtra(MainActivity.EXTRA_DETAIL)
-
         val presenter = DetailPresenter(this)
         presenter.getMealByName(mealName ?: "")
     }
@@ -147,13 +138,13 @@ class DetailActivity : AppCompatActivity(), DetailView {
 //        })
 //    }
 //
-//    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
 //        menuInflater.inflate(R.menu.menu_detail, menu)
 //        val favoriteItem = menu.findItem(R.id.favorite)
 //        val favoriteItemColor = favoriteItem.icon
 //        setupColorActionBarIcon(favoriteItemColor)
-//        return true
-//    }
+        return true
+    }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {

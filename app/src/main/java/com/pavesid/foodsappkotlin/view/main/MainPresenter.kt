@@ -29,6 +29,7 @@ class MainPresenter(var view: MainView) {
                      * input the results obtained into the setMeals() behavior
                      * and enter response.body() to the parameter
                      */
+                    response.body()
                     view.setMeal(response.body()?.getMeals())
 
                 } else {

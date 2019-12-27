@@ -5,9 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.View
-import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
 import com.pavesid.foodsappkotlin.R
 import com.pavesid.foodsappkotlin.adapter.RecyclerViewMainAdapter
@@ -16,9 +14,8 @@ import com.pavesid.foodsappkotlin.model.Categories
 import com.pavesid.foodsappkotlin.model.Meals
 import com.pavesid.foodsappkotlin.view.category.CategoryActivity
 import com.pavesid.foodsappkotlin.view.detail.DetailActivity
-import kotlinx.android.synthetic.main.activity_detail.*
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.item_recycler_meal.*
+import kotlinx.android.synthetic.main.item_view_pager_header.view.*
 import java.io.Serializable
 
 class MainActivity : AppCompatActivity(), MainView {
@@ -49,10 +46,12 @@ class MainActivity : AppCompatActivity(), MainView {
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                presenter.getSearchMeal(s.toString())
-                presenter.getMeals()
+                if (s?.length ?: 0 != 0) {
+                    presenter.getSearchMeal(s.toString())
+                } else {
+                    presenter.getMeals()
+                }
             }
-
         })
     }
 
@@ -67,22 +66,26 @@ class MainActivity : AppCompatActivity(), MainView {
     }
 
     override fun setMeal(meal: List<Meals.Meal>?) {
+        if (meal != null) {
+            viewPagerHeader.visibility = View.VISIBLE
+            val viewPagerHeaderAdapter = ViewPagerHeaderAdapter(meal, this)
+            viewPagerHeader.adapter = viewPagerHeaderAdapter
+            viewPagerHeader.setPadding(20, 0, 160, 0)
+            viewPagerHeaderAdapter.notifyDataSetChanged()
 
-        val viewPagerHeaderAdapter = ViewPagerHeaderAdapter(meal ?: listOf(), this)
-        viewPagerHeader.adapter = viewPagerHeaderAdapter
-        viewPagerHeader.setPadding(20, 0, 160, 0)
-        viewPagerHeaderAdapter.notifyDataSetChanged()
+            viewPagerHeaderAdapter.setOnItemClickListener(object :
+                ViewPagerHeaderAdapter.ClickListener {
+                override fun onClick(view: View, position: Int) {
 
-        viewPagerHeaderAdapter.setOnItemClickListener(object :
-            ViewPagerHeaderAdapter.ClickListener {
-            override fun onClick(view: View, position: Int) {
-
-                val intent = Intent(this@MainActivity, DetailActivity::class.java)
-                // add extra data (put to intent)
-                intent.putExtra(EXTRA_DETAIL, mealName.text.toString())
-                startActivity(intent)
-            }
-        })
+                    val intent = Intent(this@MainActivity, DetailActivity::class.java)
+                    // add extra data (put to intent)
+                    intent.putExtra(EXTRA_DETAIL, view.mealName.text.toString())
+                    startActivity(intent)
+                }
+            })
+        } else {
+            viewPagerHeader.visibility = View.GONE
+        }
     }
 
     override fun setCategory(category: List<Categories.Category>?) {

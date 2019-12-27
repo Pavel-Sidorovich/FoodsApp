@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
@@ -15,12 +14,10 @@ import com.pavesid.foodsappkotlin.model.Meals
 import com.pavesid.foodsappkotlin.view.detail.DetailActivity
 import com.pavesid.foodsappkotlin.view.main.MainActivity
 import com.squareup.picasso.Picasso
-import kotlinx.android.synthetic.main.activity_detail.*
 import kotlinx.android.synthetic.main.fragment_category.*
 import kotlinx.android.synthetic.main.fragment_category.progressBar
 import kotlinx.android.synthetic.main.fragment_category.textCategory
-import kotlinx.android.synthetic.main.item_recycler_meal.*
-import java.io.Serializable
+import kotlinx.android.synthetic.main.item_recycler_meal.view.*
 
 class CategoryFragment : Fragment(), CategoryView {
     lateinit var descDialog: AlertDialog.Builder
@@ -80,7 +77,7 @@ class CategoryFragment : Fragment(), CategoryView {
 
                 val intent = Intent(activity, DetailActivity::class.java)
                 // add extra data (put to intent)
-                intent.putExtra(MainActivity.EXTRA_DETAIL, mealName.text.toString())
+                intent.putExtra(MainActivity.EXTRA_DETAIL, view.mealName.text.toString())
                 startActivity(intent)
             }
         })
