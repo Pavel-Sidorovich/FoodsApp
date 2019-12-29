@@ -1,5 +1,6 @@
 package com.pavesid.foodsappkotlin.view.main
 
+import android.util.Log
 import com.pavesid.foodsappkotlin.Common
 import com.pavesid.foodsappkotlin.model.Categories
 import com.pavesid.foodsappkotlin.model.Meals
@@ -22,6 +23,14 @@ class MainPresenter(var view: MainView) {
 
             override fun onResponse(call: Call<Meals>, response: Response<Meals>) {
                 view.hideLoading()
+
+                if (response.raw().cacheResponse() != null) {
+                    Log.d("M_Network", "response came from cache");
+                }
+
+                if (response.raw().networkResponse() != null) {
+                    Log.d("M_Network", "response came from server");
+                }
 
                 if (response.isSuccessful && response.body() != null) {
                     /*

@@ -1,5 +1,6 @@
 package com.pavesid.foodsappkotlin.view.category
 
+import android.util.Log
 import com.pavesid.foodsappkotlin.Common
 import com.pavesid.foodsappkotlin.model.Meals
 import retrofit2.Call
